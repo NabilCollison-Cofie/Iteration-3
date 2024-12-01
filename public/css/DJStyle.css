@@ -83,7 +83,7 @@ body {
 /* Grid Layout */
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
     margin-bottom: 30px;
 }
@@ -94,7 +94,7 @@ body {
     padding: 20px;
 }
 
-#time-dropdown, #submit-button, .search-section input {
+#time-dropdown, #time-dropdown2, #submit-button, .search-section input {
     padding: 10px 20px;
     font-size: 16px;
     background-color: var(--primary-color);
@@ -112,42 +112,6 @@ body {
     cursor: pointer;
 }
 
-.search-section {
-    margin: 20px 0;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-#search-results {
-    margin-top: 10px;
-}
-
-#search-results ul {
-    list-style: none;
-    padding: 0;
-}
-
-#search-results li {
-    padding: 5px;
-    border-bottom: 1px solid #eee;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-#search-results button {
-    padding: 5px 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-}
-
-#search-results button:hover {
-    background-color: #45a049;
-}
 
 /* Media Player */
 .media-controls {
@@ -201,9 +165,12 @@ tr:hover {
 /* Responsive Design */
 @media screen and (max-width: 768px) {
     .sideBar {
+        position: relative;
+        top: 0;
         width: 100%;
         height: auto;
-        position: relative;
+        z-index: 1000;
+        padding: 10px 0;
     }
 
     #content {
@@ -213,6 +180,9 @@ tr:hover {
 
     .grid-container {
         grid-template-columns: 1fr;
+    }
+    .grid-item {
+        grid-column: 1 / -1; /* Make all items full width */
     }
 }
 

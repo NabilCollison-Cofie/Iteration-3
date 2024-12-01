@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const PlaylistSchema = new mongoose.Schema({
+const playlistSchema = new mongoose.Schema({
     timeSlot: {
         type: String,
         required: true
@@ -8,11 +8,7 @@ const PlaylistSchema = new mongoose.Schema({
     songs: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Song'
-    }],
-    date: {
-        type: Date,
-        default: Date.now
-    }
-}, { timestamps: true });
+    }]
+});
 
-module.exports = mongoose.model('Playlist', PlaylistSchema);
+module.exports = mongoose.model('Playlist', playlistSchema);
